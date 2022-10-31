@@ -4,6 +4,46 @@
   ~ Copyright (c) 2022, Australian Research Data Commons
   -->
 
+<!--
+  grep -r getReadableFileStats ~/work/ais/xnat/bitbucket/
+
+  screen prototype.png
+  -Bulk Actions: Download
+  -List/table:
+   -Name <pop up details similar to scan details, including thumbnails/snapshots, input params, edit QC status
+   -Type
+   -Pipeline
+   -QC status <fail/pass/etc>
+   -Thumbnails <link> - not needed, covered by Name
+   -File size <x.x MB in xx files>
+   -Provenance <link/floating icon pops up pretty print json>
+   -Methods <link/floating icon>
+  -Total: <y.y MB in yy files>
+
+  file-resources similar to scan-resources
+  provenance link could just pop up pretty print json
+  -link could be an icon similar to images meta data icon
+  may revisit summary or user/auto set qc status
+  -go with fail/pass/etc for now
+  click on name of derivative to pop up details similar to scan details, including thumbnail/snapshots, input params
+  - so no thumbnails link on main table
+  methods and processing metrics could also be a floating icons similar to scan images icons
+  derivates details popup should allow qc status to be changed
+
+  go with auto and manual qc-status fields. may expand auto later.
+
+  pipeline will report name and type
+
+  metadata for display
+  -accession#, date, time
+  -list of input files
+  -list of analysis params
+  -name of analysis class
+  -framework and analysis class version params
+
+  bulk download probably done by flywheel
+  -->
+
 <xs:schema targetNamespace="http://ardc.edu.au/ais" xmlns:ais="http://ardc.edu.au/ais" xmlns:xnat="http://nrg.wustl.edu/xnat"
            xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified">
     <xs:import namespace="http://nrg.wustl.edu/xnat" schemaLocation="../xnat/xnat.xsd"/>
@@ -15,6 +55,42 @@
                 <xs:annotation>
                     <xs:documentation>AIS analysis derivatives data.</xs:documentation>
                 </xs:annotation>
+                <xs:element name="name">
+                    <xs:annotation>
+                        <xs:documentation>
+                            pop up details similar to scan details, including thumbnails/snapshots, input params, edit QC status
+                        </xs:documentation>
+                    </xs:annotation>
+                </xs:element>
+                <xs:element name="type">
+                </xs:element>
+                <xs:element name="pipeline">
+                </xs:element>
+                <xs:element name="qcStatus">
+                    <xs:annotation>
+                        <xs:documentation>fail/pass/etc</xs:documentation>
+                    </xs:annotation>
+                </xs:element>
+                <xs:element name="thumbnails">
+                    <xs:annotation>
+                        <xs:documentation>link - not needed, covered by Name</xs:documentation>
+                    </xs:annotation>
+                </xs:element>
+                <xs:element name="fileSize">
+                    <xs:annotation>
+                        <xs:documentation>x.x MB in xx files</xs:documentation>
+                    </xs:annotation>
+                </xs:element>
+                <xs:element name="provenance">
+                    <xs:annotation>
+                        <xs:documentation>link/floating icon pops up pretty print json</xs:documentation>
+                    </xs:annotation>
+                </xs:element>
+                <xs:element name="methods">
+                    <xs:annotation>
+                        <xs:documentation>link/floating icon</xs:documentation>
+                    </xs:annotation>
+                </xs:element>
                 <xs:element name="derivativesList" minOccurs="0">
                     <xs:complexType>
                         <xs:sequence>
