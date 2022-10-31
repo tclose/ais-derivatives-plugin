@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  ~ xnat-ais-derivatives-plugin: derivatives.xsd
+  ~ Copyright (c) 2022, Australian Research Data Commons
+  -->
+
+<xs:schema targetNamespace="http://ardc.edu.au/ais" xmlns:ais="http://ardc.edu.au/ais" xmlns:xnat="http://nrg.wustl.edu/xnat"
+           xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified">
+    <xs:import namespace="http://nrg.wustl.edu/xnat" schemaLocation="../xnat/xnat.xsd"/>
+    <xs:element name="derivatives" type="ais:derivatives"/>
+
+    <xs:complexType name="derivatives">
+        <xs:complexContent>
+            <xs:extension base="xnat:imageAssessorData">
+                <xs:annotation>
+                    <xs:documentation>AIS analysis derivatives data.</xs:documentation>
+                </xs:annotation>
+                <xs:element name="derivativesList" minOccurs="0">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="derivativeName" minOccurs="1" maxOccurs="1">
+                                <xs:annotation>
+                                    <xs:documentation>The name of the generated AIS analysis derivatives data.</xs:documentation>
+                                </xs:annotation>
+                                <xs:simpleType>
+                                    <xs:restriction base="xs:string">
+                                        <xs:maxLength value="100"/>
+                                    </xs:restriction>
+                                </xs:simpleType>
+                            </xs:element>
+                            <xs:element name="derivativeUrl" minOccurs="1" maxOccurs="1">
+                                <xs:annotation>
+                                    <xs:documentation>A link to generated AIS analysis derivatives data.</xs:documentation>
+                                </xs:annotation>
+                                <xs:simpleType>
+                                    <xs:restriction base="xs:string">
+                                        <xs:pattern value="^https?://.+$"/>
+                                    </xs:restriction>
+                                </xs:simpleType>
+                            </xs:element>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+</xs:schema>
