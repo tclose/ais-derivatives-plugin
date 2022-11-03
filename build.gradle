@@ -63,6 +63,7 @@ dependencies {
     implementation "org.nrg:dicom-xnat-util"
     implementation "org.nrg:prefs"
     implementation "org.nrg:framework"
+    implementation "org.springframework:spring-web"
     implementation "dcm4che:dcm4che-core"
     implementation "io.springfox:springfox-swagger2"
     implementation "io.springfox:springfox-swagger-ui"
