@@ -55,64 +55,59 @@
                 <xs:annotation>
                     <xs:documentation>AIS analysis derivatives data.</xs:documentation>
                 </xs:annotation>
-                <xs:element name="name">
-                    <xs:annotation>
-                        <xs:documentation>
-                            pop up details similar to scan details, including thumbnails/snapshots, input params, edit QC status
-                        </xs:documentation>
-                    </xs:annotation>
-                </xs:element>
-                <xs:element name="type">
-                </xs:element>
-                <xs:element name="pipeline">
-                </xs:element>
-                <xs:element name="qcStatus">
-                    <xs:annotation>
-                        <xs:documentation>fail/pass/etc</xs:documentation>
-                    </xs:annotation>
-                </xs:element>
-                <xs:element name="thumbnails">
-                    <xs:annotation>
-                        <xs:documentation>link - not needed, covered by Name</xs:documentation>
-                    </xs:annotation>
-                </xs:element>
-                <xs:element name="fileSize">
-                    <xs:annotation>
-                        <xs:documentation>x.x MB in xx files</xs:documentation>
-                    </xs:annotation>
-                </xs:element>
-                <xs:element name="provenance">
-                    <xs:annotation>
-                        <xs:documentation>link/floating icon pops up pretty print json</xs:documentation>
-                    </xs:annotation>
-                </xs:element>
-                <xs:element name="methods">
-                    <xs:annotation>
-                        <xs:documentation>link/floating icon</xs:documentation>
-                    </xs:annotation>
-                </xs:element>
                 <xs:element name="derivativesList" minOccurs="0">
                     <xs:complexType>
                         <xs:sequence>
-                            <xs:element name="derivativeName" minOccurs="1" maxOccurs="1">
+                            <xs:element name="name" type="xs:string" minOccurs="0">
                                 <xs:annotation>
-                                    <xs:documentation>The name of the generated AIS analysis derivatives data.</xs:documentation>
+                                    <xs:documentation>
+                                        pop up details similar to scan details, including thumbnails/snapshots, input params, edit QC status
+                                    </xs:documentation>
                                 </xs:annotation>
-                                <xs:simpleType>
-                                    <xs:restriction base="xs:string">
-                                        <xs:maxLength value="100"/>
-                                    </xs:restriction>
-                                </xs:simpleType>
                             </xs:element>
-                            <xs:element name="derivativeUrl" minOccurs="1" maxOccurs="1">
+                            <xs:element name="resources" minOccurs="0">
+                                <xs:complexType>
+                                    <xs:sequence minOccurs="0">
+                                        <xs:element name="resource" type="xnat:abstractResource" minOccurs="0" maxOccurs="unbounded">
+                                            <xs:annotation>
+                                                <xs:appinfo>
+                                                    <xdat:field>
+                                                        <xdat:relation relationType="multi" relationName="xnat_projectData_resource"/>
+                                                    </xdat:field>
+                                                </xs:appinfo>
+                                            </xs:annotation>
+                                        </xs:element>
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
+                            <xs:element name="type" type="xs:string" minOccurs="0">
+                            </xs:element>
+                            <xs:element name="pipeline" type="xs:string" minOccurs="0">
+                            </xs:element>
+                            <xs:element name="qcStatus" type="xs:string" minOccurs="0">
                                 <xs:annotation>
-                                    <xs:documentation>A link to generated AIS analysis derivatives data.</xs:documentation>
+                                    <xs:documentation>fail/pass/etc</xs:documentation>
                                 </xs:annotation>
-                                <xs:simpleType>
-                                    <xs:restriction base="xs:string">
-                                        <xs:pattern value="^https?://.+$"/>
-                                    </xs:restriction>
-                                </xs:simpleType>
+                            </xs:element>
+                            <xs:element name="thumbnails">
+                                <xs:annotation>
+                                    <xs:documentation>link - not needed, covered by Name</xs:documentation>
+                                </xs:annotation>
+                            </xs:element>
+                            <xs:element name="fileSize" type="xs:integer" minOccurs="0">
+                                <xs:annotation>
+                                    <xs:documentation>x.x MB in xx files</xs:documentation>
+                                </xs:annotation>
+                            </xs:element>
+                            <xs:element name="provenance">
+                                <xs:annotation>
+                                    <xs:documentation>link/floating icon pops up pretty print json</xs:documentation>
+                                </xs:annotation>
+                            </xs:element>
+                            <xs:element name="methods">
+                                <xs:annotation>
+                                    <xs:documentation>link/floating icon</xs:documentation>
+                                </xs:annotation>
                             </xs:element>
                         </xs:sequence>
                     </xs:complexType>
