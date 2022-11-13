@@ -65,7 +65,7 @@
                                     </xs:documentation>
                                 </xs:annotation>
                             </xs:element>
-                            <xs:element name="resources" minOccurs="0">
+                            <xs:element name="resources" minOccurs="0" maxOccurs="unbounded">
                                 <xs:complexType>
                                     <xs:sequence minOccurs="0">
                                         <xs:element name="resource" type="xnat:abstractResource" minOccurs="0" maxOccurs="unbounded">
@@ -80,31 +80,31 @@
                                     </xs:sequence>
                                 </xs:complexType>
                             </xs:element>
-                            <xs:element name="type" type="xs:string" minOccurs="0">
+                            <xs:element name="type" type="xs:string" minOccurs="0" maxOccurs="1">
                             </xs:element>
-                            <xs:element name="pipeline" type="xs:string" minOccurs="0">
+                            <xs:element name="pipeline" type="xs:string" minOccurs="0" maxOccurs="1">
                             </xs:element>
-                            <xs:element name="qcStatus" type="xs:string" minOccurs="0">
+                            <xs:element name="qcStatus" type="xs:string" minOccurs="0" maxOccurs="1">
                                 <xs:annotation>
                                     <xs:documentation>fail/pass/etc</xs:documentation>
                                 </xs:annotation>
                             </xs:element>
-                            <xs:element name="thumbnails">
+                            <xs:element name="thumbnails" maxOccurs="1">
                                 <xs:annotation>
                                     <xs:documentation>link - not needed, covered by Name</xs:documentation>
                                 </xs:annotation>
                             </xs:element>
-                            <xs:element name="fileSize" type="xs:integer" minOccurs="0">
+                            <xs:element name="fileSize" type="xs:integer" minOccurs="0" maxOccurs="1">
                                 <xs:annotation>
                                     <xs:documentation>x.x MB in xx files</xs:documentation>
                                 </xs:annotation>
                             </xs:element>
-                            <xs:element name="provenance">
+                            <xs:element name="provenance" minOccurs="0" maxOccurs="1">
                                 <xs:annotation>
                                     <xs:documentation>link/floating icon pops up pretty print json</xs:documentation>
                                 </xs:annotation>
                             </xs:element>
-                            <xs:element name="methods">
+                            <xs:element name="methods" minOccurs="0" maxOccurs="1">
                                 <xs:annotation>
                                     <xs:documentation>link/floating icon</xs:documentation>
                                 </xs:annotation>
